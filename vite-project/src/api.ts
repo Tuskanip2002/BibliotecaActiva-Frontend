@@ -1,6 +1,8 @@
 import axios from 'axios';
 import type { ApiError } from './type';
-export const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
+export const api = axios.create({
+ baseURL: (import.meta as ImportMeta & { env: { VITE_API_URL: string } }).env.VITE_API_URL
+});
 api.interceptors.request.use(config => {
  const token = localStorage.getItem('token');
  if (token && !config.url?.startsWith('/auth/'))
