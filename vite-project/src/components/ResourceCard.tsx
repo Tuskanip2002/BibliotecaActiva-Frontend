@@ -5,7 +5,7 @@ export function ResourceCard({ room }: { room: Resource }) {
   return (
     <li className="card">
       <h2>
-        <Link to={`/rooms/${room.id}`}>
+        <Link to={`/materials/${room.id}`}>
           {room.title}
         </Link>
       </h2>
